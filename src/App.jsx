@@ -1,16 +1,16 @@
 import { useContext, useEffect, useState } from 'react'
 import Login from './components/Auth/Login'
-import { getLocalStorage, setLocalStorage } from './utils/localStorage'
+import { setLocalStorage } from './utils/localStorage'
 import EmployeeDashboard from '../src/components/Dashboard/EmployeeDashboard'
 import AdminDashboard from '../src/components/Dashboard/AdminDashboard'
-import { AuthContext, AuthProvider } from './context/AuthContextProvider'
+import { AuthContext } from './context/AuthContextProvider'
 
 function App() {
   
   const [user, setUser] = useState(null)
-  const [loggedInUser, setloggedInUser] = useState(null)
+  const [loggedInUser, setloggedInUser] = useState({})
   
-  const {authData}= useContext(AuthContext)
+  const {authData, updateNewTask,update}= useContext(AuthContext)
  
   useEffect(() => {
     // localStorage.clear();
@@ -66,7 +66,7 @@ function App() {
 
   return (
 
-    <AuthContext.Provider value={{authData, loggedInUser,setloggedInUser, setUser}}>
+    <AuthContext.Provider value={{authData, loggedInUser,setloggedInUser, setUser, update, updateNewTask}}>
       {/* {!user ? (
         <Login handleLogin={handleLogin} />
       ) : user === 'admin' ? (

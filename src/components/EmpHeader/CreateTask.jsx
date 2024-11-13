@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { AuthContext } from '../../context/AuthContextProvider';
 
 function CreateTask() {
@@ -16,30 +16,40 @@ function CreateTask() {
     const [category, setCategory] = useState('')
     
     const [newTask, setNewTask] = useState({})
-    const {authData} = useContext(AuthContext)
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // console.log('Task Data:', taskData);
-        
-        setNewTask({taskTitle,taskDescription,dueDate,category,active:false,completed:false,failed:false,newTask:true})
-        console.log('task:',newTask);
-        
-        authData.employees.forEach(function (element) {
-            
-            if (element.firstName === assignedTo){
-                element.tasks.push(newTask)
-            }
-            // console.log('tasks', element.tasks);
-            localStorage.setItem('employees', JSON.stringify(authData.employees));
-            element.taskSummary.newTask = element.taskSummary.newTask+1
-        })
-        // console.log('ele', authData.);
-        
-        
-        // console.log('employees name:', employees.tasks);
-    };
+    const {authData, update} = useContext(AuthContext)
     
+const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Create a task object
+    const task = {
+        taskTitle,
+        taskDescription,
+        dueDate,
+        category,
+        active: false,
+        completed: false,
+        failed: false,
+        newTask: true
+    };
+
+    setNewTask(task); // Update state with the new task data
+
+    // Update the tasks in authData based on assignedTo
+    const updatedEmployees = authData.employees.map((employee) => {
+        if (employee.firstName === assignedTo) {
+            employee.tasks.push(task);
+            employee.taskSummary.newTask += 1;
+        }
+        return employee;
+    });
+
+    
+    // Save the updated employees list back to localStorage
+    // localStorage.setItem('employees', JSON.stringify(updatedEmployees));
+    console.log('newTask:', task);
+    update(updatedEmployees);
+};
 return (
     <div className=" mx-auto mt-10">
         <form onSubmit={handleSubmit} className="bg-zinc-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">

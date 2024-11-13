@@ -288,7 +288,7 @@ export const setLocalStorage = () => {
     
     // console.log("Admin set:", JSON.stringify(admin));
     // console.log("Employees set:", JSON.stringify(employees));
-    
+    return  {employees, admin}
 } 
 
 export const getLocalStorage = () => {

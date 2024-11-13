@@ -5,7 +5,12 @@ function AllTask() {
   // const [taskData , setTaskData] = useState({})
   const {authData} = useContext(AuthContext)
   // console.log(authData.employees);
-  // console.log(authData.employees);
+  const [employees, setEmployees] = useState(authData.employees);
+
+  // Trigger component rerender when authData changes
+  useEffect(() => {
+    setEmployees(authData.employees);
+  }, [authData]);
   
   return (
     <div className='text-lg font-medium bg-zinc-200 mt-5 p-5 w-full mb-10 '>
@@ -18,7 +23,7 @@ function AllTask() {
         </div>
 
       <div className=''>
-        {authData.employees.map((ele, id) => (
+        {employees.map((ele, id) => (
           <div key={id} className='border-2 border-red-400 mb-2 px-4 py-4 flex justify-between rounded-md'>
             <h2 className='w-1/5'>{ele.firstName}</h2>
             <h3 className='w-1/5'>{ele.taskSummary.newTask}</h3>
