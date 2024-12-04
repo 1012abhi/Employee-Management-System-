@@ -70,7 +70,7 @@ export default function Login({handleLogin}) {
               }`}
               type="submit"
               disabled={isLoading}
-            >
+              >
               {isLoading ? (
                 <div className="flex items-center">
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -88,6 +88,27 @@ export default function Login({handleLogin}) {
             </a>
           </div>
         </form>
+              <h2 className="flex gap-2"><b className="text-red-600">Description:</b> <p>This project is for <b>Demo</b> purposes. If you wish to try it, please use the provided Admin and Employee details. </p></h2>
+              <div className="">
+                <div>
+                  <h1>Email:</h1>
+                  <b>admin1@aa.com</b>
+                </div>
+                <div>
+                  <h1>Password:</h1>
+                  <b>123</b>
+                </div>
+              </div>
+              <div className="">
+                <div>
+                  <h1>Email:</h1>
+                  <b>employee@exm.com </b>
+                </div>
+                <div>
+                  <h1>Password:</h1>
+                  <b>123</b>
+                </div>
+              </div>
       </div>
     </div>
   )
