@@ -4,19 +4,22 @@ import { ClipboardList, PlayCircle, CheckCircle2, XCircle } from 'lucide-react';
 
 function NumberOfTask() {
   const {loggedInUser} = useContext(AuthContext)
-  const [newTask , setNewTask ] = useState(loggedInUser.taskSummary.newTask)
-  const [active , setActive ] = useState(loggedInUser.taskSummary.active)
+//   const [newTask , setNewTask ] = useState(loggedInUser.taskSummary.newTask)
+//   const [active , setActive ] = useState(loggedInUser.taskSummary.active)
+//   const [complete , setComplete ] = useState(loggedInUser.taskSummary.completed)
+// // console.log(complete);
+
+//   // console.log('loggedInUser',loggedInUser);
   
-  console.log('loggedInUser',loggedInUser);
+//   useEffect(() => {
+//     setNewTask(loggedInUser.taskSummary.newTask)
+//     setActive(loggedInUser.taskSummary.active)
+//     setComplete(loggedInUser.taskSummary.completed)
+//     // console.log(loggedInUser.taskSummary.newTask);
+//   }, [loggedInUser])
   
-  useEffect(() => {
-    setNewTask(loggedInUser.taskSummary.newTask)
-    setActive(loggedInUser.taskSummary.active)
-    // console.log(loggedInUser.taskSummary.newTask);
-  }, [loggedInUser])
-  
-  console.log('new',newTask);
-  console.log('active',active);
+  // console.log('new',newTask);
+  // console.log('active',active);
   // console.log('number', number)
   const cards = [
     {

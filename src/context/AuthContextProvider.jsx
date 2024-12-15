@@ -31,9 +31,13 @@ export const AuthProvider = ({children}) => {
     setAuthData((prev) => ({...prev, employees: AcceptedTask}))
     localStorage.setItem('employees', JSON.stringify(AcceptedTask));
   }
+  const updateCompleted = (CompletedTask) => {
+    setAuthData((prev) => ({...prev, employees: CompletedTask}))
+    localStorage.setItem('employees', JSON.stringify(CompletedTask));
+  }
   
   return (
-    <AuthContext.Provider value={{authData,setAuthData,update,updateNewTask }}>
+    <AuthContext.Provider value={{authData,setAuthData,update,updateNewTask,updateCompleted }}>
       {children}
     </AuthContext.Provider>
   )
