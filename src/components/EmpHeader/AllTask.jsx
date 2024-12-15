@@ -14,22 +14,22 @@ function AllTask() {
   
   return (
     <div className='text-lg font-medium bg-zinc-200 mt-5 p-5 w-full mb-10 '>
-        <div className='bg-red-400 mb-2 px-4 py-4 flex justify-between rounded-md'>
-          <h2 className='w-1/5'>Employee Name</h2>
-          <h3 className='w-1/5'>New Task</h3>
-          <h5 className='w-1/5'>Active Task</h5>
-          <h5 className='w-1/5'>Completed</h5>
-          <h5 className='w-1/5'>Failed</h5>
+        <div className='bg-red-400 mb-2 px-4 py-4 flex justify-between rounded-md max-sm:text-sm'>
+          <h2 className='w-1/5  max-sm:w-1/2 max-sm:mr-1 max-sm:ml-0'>Employee Name</h2>
+          <h3 className='w-1/5  max-sm:w-1/2 max-sm:mr-1'>New Task</h3>
+          <h5 className='w-1/5  max-sm:w-1/2 max-sm:mr-1'>Active Task</h5>
+          <h5 className='w-1/5  max-sm:w-1/2 max-sm:mr-1'>Complete</h5>
+          <h5 className='w-1/5  max-sm:w-1/5 max-sm:mr-2'>Failed</h5>
         </div>
 
       <div className=''>
         {employees.map((ele, id) => (
           <div key={id} className='border-2 border-red-400 mb-2 px-4 py-4 flex justify-between rounded-md'>
-            <h2 className='w-1/5'>{ele.firstName}</h2>
-            <h3 className='w-1/5'>{ele.taskSummary.newTask}</h3>
-            <h5 className='w-1/5'>{ele.taskSummary.active}</h5>
-            <h5 className='w-1/5'>{ele.taskSummary.completed}</h5>
-            <h5 className='w-1/5'>{ele.taskSummary.failed}</h5>
+            <h2 className='w-1/5  max-sm:w-1/2'>{ele.firstName}</h2>
+            <h3 className='w-1/5  max-sm:w-1/5'>{ele.taskSummary.newTask}</h3>
+            <h5 className='w-1/5  max-sm:w-1/5'>{ele.taskSummary.active}</h5>
+            <h5 className='w-1/5  max-sm:w-1/5'>{ele.taskSummary.completed}</h5>
+            <h5 className='w-1/5  max-sm:w-1/5'>{ele.taskSummary.failed}</h5>
           </div>
         ))}
       </div>
